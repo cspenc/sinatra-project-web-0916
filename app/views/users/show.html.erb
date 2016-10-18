@@ -1,0 +1,8 @@
+<p>Name: <%= @user.name %></p>
+
+<p>Restaurants:</p>
+<ul>
+  <% @user.restaurants.each do |restaurant| %>
+  <li><a href="/restaurants/<%= restaurant.id %>"><%= restaurant.name %></a></li>
+  <% end %>
+</ul>

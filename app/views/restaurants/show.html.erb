@@ -1,0 +1,10 @@
+Name: <%= @restaurant.name %><br>
+Rating: <%= @restaurant.rating %><br>
+Address: <%= @restaurant.address %><br>
+<br>
+People who want to try:<br>
+<ul>
+  <% @restaurant.users.each do |user| %>
+    <li><%= user.name %></li>
+  <% end %>
+</ul>
