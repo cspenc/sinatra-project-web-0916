@@ -19,4 +19,21 @@ class UserController < ApplicationController
     redirect "/users/#{@user.id}"
   end
 
+  post '/users/:id/edit' do
+    @user = User.find(params[:id])
+    erb :"/users/edit.html"
+  end
+
+  patch '/users/:id' do
+    @user = User.find(params[:id])
+    @user.update(params[:user])
+    redirect "/users/#{@user.id}"
+  end
+
+  delete '/users/:id/delete' do
+    @user = User.find(params[:id])
+    @user.delete
+    redirect "/users"
+  end
+
 end
