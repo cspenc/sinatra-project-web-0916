@@ -1,10 +1,30 @@
-Name: <%= @restaurant.name %><br>
-Rating: <%= @restaurant.rating %><br>
-Address: <%= @restaurant.address %><br>
-<br>
-People who want to try:<br>
+<p>Name: <%= @restaurant.name %></p>
+<p>Rating: <%= @restaurant.rating %></p>
+<p>Address: <%= @restaurant.address %></p>
+<p>People who want to try:</p>
 <ul>
   <% @restaurant.users.each do |user| %>
     <li><%= user.name %></li>
   <% end %>
 </ul>
+
+<h1>Add a people:</h1>
+<form action="/restaurants/<%= @restaurant.id %>" method="POST">
+  <select name="user[id]">
+    <% @users.each do |user| %>
+      <option value="<%= user.id %>"><%= user.name %></option>
+    <% end %>
+  </select>
+  <input type="submit" value="Submit">
+</form>
+
+<br>
+
+<form action="/restaurants/<%= @restaurant.id %>/edit" method="POST">
+  <input type="submit" value="Edit Restaurant">
+</form>
+
+<form action="/restaurants/<%= @restaurant.id %>/delete" method="POST">
+  <input type="hidden" id="hidden" name="_method" value="delete">
+  <input type="submit" value="Delete Restaurant">
+</form>
