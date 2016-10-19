@@ -12,14 +12,14 @@
   <input type="hidden" name="search[location]" value="<%= @user.address %>">
   <input type="hidden" name="search[term]" value="restaurant"></p>
   <input type="hidden" name="search[limit]" value="5"></p>
-  <input type="submit" value="Search nearby">
+  <input type="submit" class="btn btn-default" value="Search nearby">
 </form>
 
 <form action="/users/<%= @user.id %>/edit" method="POST">
-  <input type="submit" value="Edit User">
+  <input type="submit" class="btn btn-default" value="Edit User">
 </form>
 
 <form action="/users/<%= @user.id %>/delete" method="POST">
   <input type="hidden" id="hidden" name="_method" value="delete">
-  <input type="submit" value="Delete User">
+  <input type="submit" class="btn btn-default" value="Delete User">
 </form>
