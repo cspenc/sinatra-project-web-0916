@@ -1,37 +1,44 @@
-<p><strong>Name:</strong> <%= @restaurant.name %></p>
-<p><strong>Rating:</strong> <%= @restaurant.rating %></p>
-<p>
-  <strong>Address:</strong><br>
-  <%= @restaurant.address.gsub("\n", "<br>") %>
-</p>
-<p><strong>People who want to try:</strong></p>
-<ul>
-  <% @restaurant.users.each do |user| %>
-    <li><%= user.name %></li>
-  <% end %>
-</ul>
+<div class="row">
+  <div class="col-md-6">
 
-<h1>Add a people:</h1>
-<form action="/restaurants/<%= @restaurant.id %>" method="POST">
-  <select name="user[id]">
-    <% @users.each do |user| %>
-      <option value="<%= user.id %>"><%= user.name %></option>
-    <% end %>
-  </select>
-  <input type="submit" value="Submit">
-</form>
+    <p><strong>Name:</strong> <%= @restaurant.name %></p>
+    <p><strong>Rating:</strong> <%= @restaurant.rating %></p>
+    <p>
+      <strong>Address:</strong><br>
+      <%= @restaurant.address.gsub("\n", "<br>") %>
+    </p>
+    <p><strong>People who want to try:</strong></p>
+    <ul>
+      <% @restaurant.users.each do |user| %>
+        <li><%= user.name %></li>
+      <% end %>
+    </ul>
 
-<br>
+    <h1>Add a people:</h1>
+    <form action="/restaurants/<%= @restaurant.id %>" method="POST">
+      <select name="user[id]">
+        <% @users.each do |user| %>
+          <option value="<%= user.id %>"><%= user.name %></option>
+        <% end %>
+      </select>
+      <input type="submit" value="Submit">
+    </form>
 
-<form action="/restaurants/<%= @restaurant.id %>/edit" method="POST">
-  <input type="submit" value="Edit Restaurant">
-</form>
+    <br>
 
-<form action="/restaurants/<%= @restaurant.id %>/delete" method="POST">
-  <input type="hidden" id="hidden" name="_method" value="delete">
-  <input type="submit" value="Delete Restaurant">
-</form>
-<br><br>
-<p>
-  <iframe width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCPqE97jAp_G0Wbi6osAtctsq0HxauyRe0&q=<%= @restaurant.address %>" allowfullscreen></iframe>
-</p>
+    <form action="/restaurants/<%= @restaurant.id %>/edit" method="POST">
+      <input type="submit" value="Edit Restaurant">
+    </form>
+
+    <form action="/restaurants/<%= @restaurant.id %>/delete" method="POST">
+      <input type="hidden" id="hidden" name="_method" value="delete">
+      <input type="submit" value="Delete Restaurant">
+    </form>
+
+  </div>
+  <div class="col-md-6">
+    <p>
+      <iframe width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCPqE97jAp_G0Wbi6osAtctsq0HxauyRe0&q=<%= @restaurant.address %>" allowfullscreen></iframe>
+    </p>
+  </div>
+</div>

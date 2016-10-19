@@ -9,7 +9,9 @@
 </ul>
 
 <form action="/restaurants/search" method="post">
-  <input type="hidden" name="city" value="<%= @user.address %>">
+  <input type="hidden" name="search[location]" value="<%= @user.address %>">
+  <input type="hidden" name="search[term]" value="restaurant"></p>
+  <input type="hidden" name="search[limit]" value="5"></p>
   <input type="submit" value="Search nearby">
 </form>
 
