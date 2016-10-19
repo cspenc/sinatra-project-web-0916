@@ -1,5 +1,7 @@
 <form action="/restaurants/search" method="post">
-  <p>City: <input type="text" name="city"></p>
+  <p>City: <input type="text" name="search[location]"></p>
+  <p>Cuisine: <input type="text" name="search[term]"></p>
+  <p>Number of Results: <input type="text" name="search[limit]" value="5"></p>
   <p><input type="submit" value="Search"></p>
 </form>
 <br>

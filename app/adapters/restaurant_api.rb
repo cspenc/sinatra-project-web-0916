@@ -11,10 +11,10 @@ class RestaurantAPI
       })
   end
 
-  def self.search(location)
+  def self.search(location:, term:, limit:)
     search_params = {
-      term: "restaurant",
-      limit: 10
+      term: term,
+      limit: limit
     }
 
     restaurants = client.search(location, search_params).businesses

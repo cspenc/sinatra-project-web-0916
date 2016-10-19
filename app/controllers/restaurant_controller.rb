@@ -10,7 +10,7 @@ class RestaurantController < ApplicationController
   end
 
   post '/restaurants/search' do
-    RestaurantAPI.search(params[:city])
+    RestaurantAPI.search(location: params[:search][:location], term: params[:search][:term], limit: params[:search][:limit])
     redirect "/restaurants"
   end
 

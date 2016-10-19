@@ -1,7 +1,7 @@
-<p>Name: <%= @user.name %></p>
-<p>Address: <%= @user.address %></p>
+<p><strong>Name:</strong> <%= @user.name %></p>
+<p><strong>Address:</strong> <%= @user.address %></p>
 
-<p>Restaurants:</p>
+<p><strong>Restaurants:</strong></p>
 <ul>
   <% @user.restaurants.each do |restaurant| %>
   <li><a href="/restaurants/<%= restaurant.id %>"><%= restaurant.name %></a></li>
