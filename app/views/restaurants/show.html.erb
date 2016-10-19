@@ -1,6 +1,7 @@
 <p>Name: <%= @restaurant.name %></p>
 <p>Rating: <%= @restaurant.rating %></p>
-<p>Address: <%= @restaurant.address %></p>
+<p>Address:<br>
+<%= @restaurant.address.gsub("\n", "<br>") %></p>
 <p>People who want to try:</p>
 <ul>
   <% @restaurant.users.each do |user| %>

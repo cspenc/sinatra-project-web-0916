@@ -1,0 +1,7 @@
+<form action="/restaurants/new" method="POST">
+  <input type="hidden" id="hidden" name="responses" value="<%= @responses %>"><br>
+  <% @responses.each do |business| %>
+    <input type="checkbox" name="selections[]" value="<%= business.keys.first %>"> <%= business.values.first[:name] %> <br>
+  <% end %>
+  <input type="submit" value="Add selected to restaurants">
+</form>

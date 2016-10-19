@@ -9,24 +9,8 @@ class RestaurantController < ApplicationController
     erb :"/restaurants/new.html"
   end
 
-
   post '/restaurants/search' do
-    # status 200
-    @city = params[:city]
-    @cuisine = params[:cuisine]
-
-    search_params = {
-      term: "#{@cuisine}",
-      limit: 5
-    }
-
-    @yelp_response = Yelp.client.search("#{@city}", search_params)
-    @yelp_response.businesses.each do |business|
-      name = business.name
-      location = business.location.display_address
-      rating = business.rating
-      Restaurant.create(name: name, rating: rating, address: location)
-    end
+    RestaurantAPI.search(params[:city])
     redirect "/restaurants"
   end
 
